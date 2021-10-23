@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>EarTrainer</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>EarTrainer</title>
-  <link href="style.css" rel="stylesheet">
-</head>
+  <body>
+    <h1>EarTrainer</h1>
 
-<body>
-  <h1>EarTrainer</h1>
+    <div>
+      <label for="devices">Device:</label>
+      <select id="devices"></select>
+    </div>
 
-  <div><label for="devices">Device:</label> <select id="devices"></select></div>
+    <div>
+      <label for="a4">A4:</label>
+      <input id="a4" type="number" value="440" />
+      <input id="sharps" name="accidentals" type="radio" checked />
+      <label for="sharps">Sharps</label>
+      <input id="flats" name="accidentals" type="radio" />
+      <label for="flats">Flats</label>
+    </div>
 
-  <div>
-    <label for="a4">A4:</label>
-    <input id="a4" type="number" value="440">
-    <input id="sharps" name="accidentals" type="radio" checked>
-    <label for="sharps">Sharps</label>
-    <input id="flats" name="accidentals" type="radio">
-    <label for="flats">Flats</label>
-  </div>
+    <div>Pitch: <span id="pitch"></span></div>
+    <div>Frequency: <span id="frequency"></span></div>
+    <div>Target frequency: <span id="targetFrequency"></span></div>
+    <div>Cents off: <span id="cents"></span></div>
+    <div id="status"></div>
 
-  <div>Pitch: <span id="pitch"></span></div>
-  <div>Frequency: <span id="frequency"></span></div>
-  <div>Target frequency: <span id="targetFrequency"></span></div>
-  <div>Cents off: <span id="cents"></span></div>
-  <div id="status"></div>
+    <audio controls src="./data/piano_40.wav"></audio>
 
-  <div><button id="listen" disabled>Listen</button></div>
-</body>
+    <div><button id="listen" disabled>Listen</button></div>
+  </body>
 
-<script src="renderer.js"></script>
-
+  <script src="renderer.js"></script>
 </html>
