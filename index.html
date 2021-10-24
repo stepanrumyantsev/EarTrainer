@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>EarTrainer</title>
-    <link href="style.css" rel="stylesheet" />
-  </head>
 
-  <body>
-    <h1>EarTrainer</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>EarTrainer</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
 
-    <div>
-      <label for="devices">Device:</label>
-      <select id="devices"></select>
-    </div>
+<body>
+  <h1>EarTrainer</h1>
 
-    <div>
-      <label for="a4">A4:</label>
-      <input id="a4" type="number" value="440" />
-      <input id="sharps" name="accidentals" type="radio" checked />
-      <label for="sharps">Sharps</label>
-      <input id="flats" name="accidentals" type="radio" />
-      <label for="flats">Flats</label>
-    </div>
+  <div>
+    <label for="devices">Device:</label>
+    <select id="devices"></select>
+  </div>
 
-    <div>Pitch: <span id="pitch"></span></div>
-    <div>Frequency: <span id="frequency"></span></div>
-    <div>Target frequency: <span id="targetFrequency"></span></div>
-    <div>Cents off: <span id="cents"></span></div>
-    <div id="status"></div>
+  <div>
+    <label for="a4">A4:</label>
+    <input id="a4" type="number" value="440" />
+    <input id="sharps" name="accidentals" type="radio" checked />
+    <label for="sharps">Sharps</label>
+    <input id="flats" name="accidentals" type="radio" />
+    <label for="flats">Flats</label>
+  </div>
 
-    <audio controls src="./data/piano_40.wav"></audio>
+  <div>Pitch: <span id="pitch"></span></div>
+  <div>Frequency: <span id="frequency"></span></div>
+  <div>Target frequency: <span id="targetFrequency"></span></div>
+  <div>Cents off: <span id="cents"></span></div>
+  <div id="status"></div>
+  <div>261.626 Hz</div>
+  <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
 
-    <div><button id="listen" disabled>Listen</button></div>
-  </body>
+  <div><button id="listen" disabled>Listen</button></div>
+</body>
 
-  <script src="renderer.js"></script>
+<script src="renderer.js"></script>
+
 </html>
