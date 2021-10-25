@@ -3,36 +3,72 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
   <title>EarTrainer</title>
   <link href="style.css" rel="stylesheet" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
+
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <link rel="stylesheet" href="styles/styles_v5.css">
+  <script src="scripts/calculateprice_v2.js"></script>
+  <script type="module">
+    import { toastController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
+    window.toastController = toastController;
+  </script>
+  <script type="module">
+    import { modalController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
+    window.modalController = modalController;
+  </script>
+  <script type="module">
+    import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
+    window.alertController = alertController;
+  </script>
+  <script type="module">
+    import { actionSheetController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
+    window.actionSheetController = actionSheetController;
+  </script>
 </head>
 
 <body>
-  <h1>EarTrainer</h1>
+  <ion-app id="ionicApp">
+    <ion-content fullscreen overflow-scroll="true" forceOverscroll="true" [scrollEvents]="true">
+      <ion-header class="ion-no-border">
+        <ion-toolbar color="favorite">
+          <ion-title style="width: 100%; padding: 0; margin: 0; text-align: center;">
+            EarTrainer
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-  <div>
-    <label for="devices">Device:</label>
-    <select id="devices"></select>
-  </div>
+      <div>
+        <label for="devices">Device:</label>
+        <select id="devices"></select>
+      </div>
 
-  <div>
-    <label for="a4">A4:</label>
-    <input id="a4" type="number" value="440" />
-    <input id="sharps" name="accidentals" type="radio" checked />
-    <label for="sharps">Sharps</label>
-    <input id="flats" name="accidentals" type="radio" />
-    <label for="flats">Flats</label>
-  </div>
+      <div>
+        <label for="a4">A4:</label>
+        <input id="a4" type="number" value="440" />
+        <input id="sharps" name="accidentals" type="radio" checked />
+        <label for="sharps">Sharps</label>
+        <input id="flats" name="accidentals" type="radio" />
+        <label for="flats">Flats</label>
+      </div>
 
-  <div>Pitch: <span id="pitch"></span></div>
-  <div>Frequency: <span id="frequency"></span></div>
-  <div>Target frequency: <span id="targetFrequency"></span></div>
-  <div>Cents off: <span id="cents"></span></div>
-  <div id="status"></div>
-  <div>261.626 Hz</div>
-  <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
+      <div>Pitch: <span id="pitch"></span></div>
+      <div>Frequency: <span id="frequency"></span></div>
+      <div>Target frequency: <span id="targetFrequency"></span></div>
+      <div>Cents off: <span id="cents"></span></div>
+      <div id="status"></div>
+      <div>261.626 Hz</div>
+      <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
 
-  <div><button id="listen" disabled>Listen</button></div>
+      <div><button id="listen" disabled>Listen</button></div>
+    </ion-content>
+  </ion-app>
 </body>
 
 <script src="renderer.js"></script>
