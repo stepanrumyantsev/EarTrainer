@@ -58,15 +58,29 @@
         <label for="flats">Flats</label>
       </div>
 
-      <div>Pitch: <span id="pitch"></span></div>
-      <div>Frequency: <span id="frequency"></span></div>
-      <div>Target frequency: <span id="targetFrequency"></span></div>
-      <div>Cents off: <span id="cents"></span></div>
+      <ion-item>
+        <ion-label>Pitch: </ion-label>
+        <span id="pitch"></span>
+      </ion-item>
+      <ion-item>
+        <ion-label>Frequency:</ion-label>
+        <span id="frequency"></span>
+      </ion-item>
+      <Ion-item>
+        <ion-label>Target frequency:</ion-label><span id="targetFrequency"></span>
+      </Ion-item>
+      <ion-item>
+        <ion-label>
+          Cents off:
+        </ion-label> <span id="cents"></span>
+      </ion-item>
       <div id="status"></div>
       <div>261.626 Hz</div>
       <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
 
-      <div><button id="listen" disabled>Listen</button></div>
+      <div>
+        <ion-button id="listen" disabled>Listen</ion-button>
+      </div>
     </ion-content>
   </ion-app>
 </body>
