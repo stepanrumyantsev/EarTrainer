@@ -44,19 +44,22 @@
         </ion-toolbar>
       </ion-header>
 
-      <div>
-        <label for="devices">Device:</label>
+      <ion-item>
+        <ion-label for="devices">Device:</ion-label>
         <select id="devices"></select>
-      </div>
+      </ion-item>
 
-      <div>
+      <ion-item>
         <label for="a4">A4:</label>
         <input id="a4" type="number" value="440" />
+
+
+
         <input id="sharps" name="accidentals" type="radio" checked />
         <label for="sharps">Sharps</label>
         <input id="flats" name="accidentals" type="radio" />
         <label for="flats">Flats</label>
-      </div>
+      </ion-item>
 
       <ion-item>
         <ion-label>Pitch: </ion-label>
@@ -75,7 +78,7 @@
         </ion-label> <span id="cents"></span>
       </ion-item>
       <div id="status"></div>
-      <div>261.626 Hz</div>
+      <ion-label>261.626 Hz</ion-label>
       <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
 
       <div>
