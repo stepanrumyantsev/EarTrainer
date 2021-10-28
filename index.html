@@ -36,6 +36,10 @@
 <body>
   <ion-app id="ionicApp">
     <ion-content fullscreen overflow-scroll="true" forceOverscroll="true" [scrollEvents]="true">
+        <ion-tabs>
+
+        <ion-tab tab="listen">
+         
       <ion-header class="ion-no-border">
         <ion-toolbar color="favorite">
           <ion-title style="width: 100%; padding: 0; margin: 0; text-align: center;">
@@ -44,10 +48,7 @@
         </ion-toolbar>
       </ion-header>
 
-      <ion-item>
-        <ion-label for="devices">Device:</ion-label>
-        <select id="devices"></select>
-      </ion-item>
+     
 
       <ion-item>
         <label for="a4">A4:</label>
@@ -84,6 +85,49 @@
       <div>
         <ion-button id="listen" disabled>Listen</ion-button>
       </div>
+        </ion-tab>
+
+
+
+        <ion-tab tab="settings">
+
+           <ion-item>
+        <ion-label for="devices">Device:</ion-label>
+        <select id="devices"></select>
+      </ion-item>
+        </ion-tab>
+
+
+          <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="listen">
+            <ion-icon name="volume-medium-outline"></ion-icon>
+            <ion-label>
+              Listen
+
+            </ion-label>
+
+
+
+          </ion-tab-button>
+
+
+                    <ion-tab-button tab="settings">
+            <ion-icon name="settings-outline"></ion-icon>
+            <ion-label>
+                Settings
+
+            </ion-label>
+
+
+
+          </ion-tab-button>
+
+
+
+
+        </ion-tabs>
+
+
     </ion-content>
   </ion-app>
 </body>
