@@ -1,137 +1,140 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>EarTrainer</title>
+    <link href="style.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
-  <title>EarTrainer</title>
-  <link href="style.css" rel="stylesheet" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+    <link rel="stylesheet" href="styles/styles_v5.css" />
+    <script src="scripts/calculateprice_v2.js"></script>
+    <script type="module">
+      import { toastController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
+      window.toastController = toastController;
+    </script>
+    <script type="module">
+      import { modalController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
+      window.modalController = modalController;
+    </script>
+    <script type="module">
+      import { alertController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
+      window.alertController = alertController;
+    </script>
+    <script type="module">
+      import { actionSheetController } from "https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js";
+      window.actionSheetController = actionSheetController;
+    </script>
+  </head>
 
-
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
-  <link rel="stylesheet" href="styles/styles_v5.css">
-  <script src="scripts/calculateprice_v2.js"></script>
-  <script type="module">
-    import { toastController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
-    window.toastController = toastController;
-  </script>
-  <script type="module">
-    import { modalController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
-    window.modalController = modalController;
-  </script>
-  <script type="module">
-    import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
-    window.alertController = alertController;
-  </script>
-  <script type="module">
-    import { actionSheetController } from 'https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/index.esm.js';
-    window.actionSheetController = actionSheetController;
-  </script>
-</head>
-
-<body>
-  <ion-app id="ionicApp">
-    <ion-content fullscreen overflow-scroll="true" forceOverscroll="true" [scrollEvents]="true">
+  <body>
+    <ion-app id="ionicApp">
+      <ion-content
+        fullscreen
+        overflow-scroll="true"
+        forceOverscroll="true"
+        [scrollEvents]="true"
+      >
         <ion-tabs>
+          <ion-tab tab="listen">
+            <ion-header class="ion-no-border">
+              <ion-toolbar color="primary">
+                <ion-title
+                  style="width: 100%; padding: 0; margin: 0; text-align: center"
+                >
+                  EarTrainer
+                </ion-title>
+              </ion-toolbar>
+            </ion-header>
 
-        <ion-tab tab="listen">
-         
-      <ion-header class="ion-no-border">
-        <ion-toolbar color="favorite">
-          <ion-title style="width: 100%; padding: 0; margin: 0; text-align: center;">
-            EarTrainer
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
+            <ion-item>
+              <label for="a4">A4:</label>
+              <input id="a4" type="number" value="440" />
 
-     
+              <input id="sharps" name="accidentals" type="radio" checked />
+              <label for="sharps">Sharps</label>
+              <input id="flats" name="accidentals" type="radio" />
+              <label for="flats">Flats</label>
+            </ion-item>
 
-      <ion-item>
-        <label for="a4">A4:</label>
-        <input id="a4" type="number" value="440" />
+            <ion-item>
+              <ion-label>Pitch: </ion-label>
+              <span id="pitch"></span>
+            </ion-item>
+            <ion-item>
+              <ion-label>Frequency:</ion-label>
+              <span id="frequency"></span>
+            </ion-item>
+            <Ion-item>
+              <ion-label>Target frequency:</ion-label
+              ><span id="targetFrequency"></span>
+            </Ion-item>
+            <ion-item>
+              <ion-label> Cents off: </ion-label> <span id="cents"></span>
+            </ion-item>
+            <div id="status"></div>
+            <ion-label>261.626 Hz</ion-label>
+            <audio controls loop src="./data/piano_40.wav">
+              piano_40 (261.626 Hz)
+            </audio>
 
+            <div>
+              <ion-button id="listen" disabled>Listen</ion-button>
+            </div>
+          </ion-tab>
 
+          <ion-tab tab="settings">
+            <ion-header>
+              <ion-toolbar color="primary">
+                <ion-title> Settings </ion-title>
+              </ion-toolbar>
+            </ion-header>
 
-        <input id="sharps" name="accidentals" type="radio" checked />
-        <label for="sharps">Sharps</label>
-        <input id="flats" name="accidentals" type="radio" />
-        <label for="flats">Flats</label>
-      </ion-item>
+            <ion-item>
+              <ion-label for="devices">Device:</ion-label>
+              <select id="devices"></select>
+            </ion-item>
+          </ion-tab>
 
-      <ion-item>
-        <ion-label>Pitch: </ion-label>
-        <span id="pitch"></span>
-      </ion-item>
-      <ion-item>
-        <ion-label>Frequency:</ion-label>
-        <span id="frequency"></span>
-      </ion-item>
-      <Ion-item>
-        <ion-label>Target frequency:</ion-label><span id="targetFrequency"></span>
-      </Ion-item>
-      <ion-item>
-        <ion-label>
-          Cents off:
-        </ion-label> <span id="cents"></span>
-      </ion-item>
-      <div id="status"></div>
-      <ion-label>261.626 Hz</ion-label>
-      <audio controls loop src="./data/piano_40.wav">piano_40 (261.626 Hz)</audio>
-
-      <div>
-        <ion-button id="listen" disabled>Listen</ion-button>
-      </div>
-        </ion-tab>
-
-
-
-        <ion-tab tab="settings">
-
-           <ion-item>
-        <ion-label for="devices">Device:</ion-label>
-        <select id="devices"></select>
-      </ion-item>
-        </ion-tab>
-
+          <!--TAB BAR-->
 
           <ion-tab-bar slot="bottom">
-          <ion-tab-button tab="listen">
-            <ion-icon name="volume-medium-outline"></ion-icon>
-            <ion-label>
-              Listen
+            <ion-tab-button tab="listen">
+              <ion-icon name="volume-medium-outline"></ion-icon>
+              <ion-label> Listen </ion-label>
+            </ion-tab-button>
 
-            </ion-label>
-
-
-
-          </ion-tab-button>
-
-
-                    <ion-tab-button tab="settings">
-            <ion-icon name="settings-outline"></ion-icon>
-            <ion-label>
+            <ion-tab-button tab="settings">
+              <ion-icon name="settings-outline"></ion-icon>
+              <ion-label
+                style="width: 100%; padding: 0; margin: 0; text-align: center"
+              >
                 Settings
-
-            </ion-label>
-
-
-
-          </ion-tab-button>
-
-
-
-
+              </ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
         </ion-tabs>
+      </ion-content>
+    </ion-app>
+  </body>
 
-
-    </ion-content>
-  </ion-app>
-</body>
-
-<script src="renderer.js"></script>
-
+  <script src="renderer.js"></script>
 </html>
